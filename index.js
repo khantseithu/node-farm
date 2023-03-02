@@ -24,10 +24,21 @@ const url = require('url');
 
 
 const server = http.createServer((req, res) => {
-    res.writeHead(200, {
-        'Content-type': 'text/html'
-    })
-    res.end('<h1>Hello from the server!</h1>');
+    const pathName = req.url;
+    console.log(req.url);
+
+
+    if(pathName === '/' || pathName === '/overview') {
+        res.end('This is the OVERVIEW');
+    } else if(pathName === '/product') {
+        res.end('This is the PRODUCT');
+    } else {
+        res.writeHead(404, {
+            'Content-type': 'text/html',
+            'my-own-header': 'hello-world'
+        });
+        res.end('<h1>Page not found!</h1>');
+    }
 });
 
 server.listen(8000, '127.0.0.1', () => {
