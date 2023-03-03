@@ -18,5 +18,8 @@
   "homepage": "https://github.com/khantseithu/node-farm#readme",
   "dependencies": {
     "slugify": "^1.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
   }
 }
